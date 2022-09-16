@@ -11,7 +11,7 @@ docker build -t rtsp-demo-server .
 ## Run
 
 ```
-docker run  -p 8554:8554 rtsp-demo-server
+docker run -it -p 8554:8554 rtsp-demo-server
 ```
 
 ## Debug
@@ -19,7 +19,7 @@ docker run  -p 8554:8554 rtsp-demo-server
 First start interactive session:
 
 ```
-docker run --privileged -p8554:8554 --entrypoint "" -it rtsp-demo-server bash
+docker run -p8554:8554 -it rtsp-demo-server bash
 ```
 
 Then manually run the service:

@@ -10,5 +10,7 @@ RUN cmake ..
 RUN make -j install
 
 EXPOSE 8554
+COPY run-stream.sh /usr/bin/
+RUN chmod +x /usr/bin/run-stream.sh
 
-ENTRYPOINT [ "gst-rtsp-launch", "( videotestsrc is-live=1 ! clockoverlay halignment=right valignment=bottom font-desc=\"Sans, 36\" ! x264enc speed-preset=ultrafast tune=zerolatency ! rtph264pay name=pay0 pt=96 )" ]
+CMD [ "run-stream.sh" ]
