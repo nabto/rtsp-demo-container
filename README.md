@@ -1,6 +1,6 @@
 # RTSP test service
 
-WIP, internal tool for now.
+A container for hosting a simple RTSP test stream.
 
 ## Build container
 
