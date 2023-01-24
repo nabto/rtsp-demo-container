@@ -43,4 +43,6 @@ docker run --rm -p8554:8554 -it --device /dev/video0 rtsp-demo-server bash
 
 and then run
 
+```
 gst-rtsp-launch '( v4l2src device=/dev/video0 ! videoconvert ! queue ! x264enc tune="zerolatency" byte-stream=true bitrate=10000 ! rtph264pay name=pay0 pt=96 )'
+```
