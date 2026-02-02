@@ -2,8 +2,9 @@ FROM debian:bookworm
 
 RUN apt update && apt install -y git gcc g++ build-essential autoconf libtool pkg-config cmake libgstrtspserver-1.0-dev libglib2.0-dev libgstreamer1.0-dev gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good
 
-# Copy local edge-device-webrtc with our modifications
-COPY edge-device-webrtc /tmp/edge-device-webrtc
+# Clone edge-device-webrtc from the multiple-simulated-channels branch
+WORKDIR /tmp
+RUN git clone -b multiple-simulated-channels --single-branch https://github.com/nabto/edge-device-webrtc
 
 WORKDIR /tmp/edge-device-webrtc/test-apps/rtsp-server/_build
 RUN cmake ..
